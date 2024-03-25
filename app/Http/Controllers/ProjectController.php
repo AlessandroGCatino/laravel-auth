@@ -33,9 +33,7 @@ class ProjectController extends Controller
     {
         $validatedData = $request->validated();
         
-        $newProject = new Project();
-        
-        $newProject->fill($validatedData);
+        $newProject = Project::create($validatedData);
         $newProject->save();
         return redirect()->route("projects.index");
 
@@ -54,7 +52,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view("dashboard.edit");
+        return view("dashboard.edit", compact("project"));
     }
 
     /**
@@ -62,7 +60,10 @@ class ProjectController extends Controller
      */
     public function update(UpdateProjectRequest $request, Project $project)
     {
-        //
+        $validatedData = $request->validated();
+        
+        $project->update($validatedData);
+        return redirect()->route("projects.index");
     }
 
     /**
