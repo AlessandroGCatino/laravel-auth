@@ -19,7 +19,7 @@ class ProjectSeeder extends Seeder
             $newProject->title = $faker->word();
             $newProject->description = $faker->text();
             $newProject->languages = $faker->words($nb = 3, $asText = true);
-            $newProject->cover = $faker->image();
+            $newProject->cover = $faker->imageUrl(640, 480, 'animals', true);
             $newProject->save();
         }
     }

@@ -13,7 +13,9 @@ class ProjectController extends Controller
      */
     public function index()
     {
-        //
+        $projects = Project::all();
+
+        return view("dashboard.index", compact("projects"));
     }
 
     /**
@@ -21,7 +23,7 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        //
+        return view("dashboard.create");
     }
 
     /**
@@ -29,7 +31,14 @@ class ProjectController extends Controller
      */
     public function store(StoreProjectRequest $request)
     {
-        //
+        $validatedData = $request->validated();
+        
+        $newProject = new Project();
+        
+        $newProject->fill($validatedData);
+        $newProject->save();
+        return redirect()->route("projects.index");
+
     }
 
     /**
@@ -37,7 +46,7 @@ class ProjectController extends Controller
      */
     public function show(Project $project)
     {
-        //
+        return view('projects.show', compact('project'));
     }
 
     /**
@@ -45,7 +54,7 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        //
+        return view("dashboard.edit");
     }
 
     /**
@@ -61,6 +70,8 @@ class ProjectController extends Controller
      */
     public function destroy(Project $project)
     {
-        //
+        $project->delete();
+
+        return redirect()->route("projects.index");
     }
 }
