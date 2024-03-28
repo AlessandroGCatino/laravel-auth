@@ -5,7 +5,7 @@
 <div class="container mt-3 ">
     <h1 class="mb-3">Crea nuovo Progetto</h1>
 
-    <form action="{{route("projects.store")}}" method="POST">
+    <form action="{{route("projects.store")}}" method="POST" enctype="multipart/form-data">
 
         @csrf
     
@@ -34,12 +34,16 @@
         </div>
 
         <div class="mb-3">
-            <label for="cover" class="form-label">Copertina</label>
-            <input
-                type="text"
-                class="form-control"
-                name="cover"
-                id="cover"/>
+            <div class="mb-3">
+                <label for="" class="form-label">Seleziona un'immagine</label>
+                <input
+                    type="file"
+                    class="form-control"
+                    name="cover"
+                    id="cover"  
+                />
+            </div>
+            
         </div>
         
     
