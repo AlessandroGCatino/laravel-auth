@@ -15,7 +15,7 @@
         </div>
     @endif
 
-    <form action="{{route("projects.update", $project)}}" method="POST">
+    <form action="{{route("projects.update", $project)}}" method="POST" enctype="multipart/form-data">
 
         @csrf
         @method("PUT")
@@ -45,14 +45,24 @@
                 value="{{old('languages') ?? $project->languages}}"/>
         </div>
 
+        @if ($project->cover)
+        <img
+            src="{{ asset("/storage/" . $project->cover)}}"
+            class="img-fluid rounded-top"
+            alt="{{$project->title}}"
+        />
+        
+            
+        @endif
+
         <div class="mb-3">
-            <label for="cover" class="form-label">Copertina</label>
+            <label for="" class="form-label">Seleziona un'immagine</label>
             <input
-                type="text"
+                type="file"
                 class="form-control"
                 name="cover"
-                id="cover"
-                value="{{old('cover') ?? $project->cover}}"/>
+                id="cover"  
+            />
         </div>
         
     
