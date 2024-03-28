@@ -55,7 +55,7 @@
             
         @endif
 
-        <div class="mb-3">
+        <div class="mt-3 mb-3">
             <label for="" class="form-label">Seleziona un'immagine</label>
             <input
                 type="file"
@@ -68,7 +68,7 @@
     
         <button
             type="submit"
-            class="btn btn-primary"
+            class="btn btn-primary mb-5"
         >
             Modifica
         </button>
