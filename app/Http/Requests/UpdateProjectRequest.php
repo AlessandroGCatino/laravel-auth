@@ -25,7 +25,7 @@ class UpdateProjectRequest extends FormRequest
             "title" => "required",
             "description" => "required",
             "languages" => "required",
-            "cover" => ["required", "image"]
+            "cover" => ["nullable", "image"]
         ];
     }
 }
