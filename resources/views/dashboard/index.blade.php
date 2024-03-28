@@ -20,7 +20,7 @@
                 <tbody>
                     @foreach ($projects as $item)
                         <tr>
-                            <th>{{$item->title}}</td>
+                            <th><a href="{{route("projects.show", $item)}}">{{$item->title}}</a></td>
                             <td>{{$item->description}}</td>
                             <td>{{$item->languages}}</td>
                             <td>{{$item->cover}}</td>
